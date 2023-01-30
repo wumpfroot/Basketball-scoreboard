@@ -19,7 +19,7 @@ body {
     justify-content: center;
 }
 
-h1 {
+.score-number {
     display: inline-block;
     color: #F94F6D;
     font-size: 90px;
@@ -38,7 +38,7 @@ h3 {
 .container {
     display: flex;
     justify-content: space-around;
-    max-width: 90%;
+    max-width: 95%;
     margin: auto;
     background-color: #1B244A;
 }
@@ -58,6 +58,7 @@ h3 {
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0);
+    color: white;
     border: 1px solid #9aabd8;
     border-radius: 5px;
     cursor: pointer;
@@ -84,6 +85,20 @@ h3 {
     transform: translate(.3px, 1px)
 }
 
+.game-timer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#countdown {
+    font-size: 2rem;
+}
+
+#start-game {
+    padding: 10px 20px;
+}
+
 @media (max-width:500px) {
     h1 {
         display: inline-block;
@@ -98,5 +113,27 @@ h3 {
         height: 30px;
         width: 30px;
         font-size: .9rem;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 800px){
+    body {
+        flex-direction: row;
+    }
+
+    .container {
+        max-height: 250px;
+    }
+
+    .header-text {
+        font-size: .9rem;
+    }
+
+    .score_btn {
+        color: black;
+    }
+    
+    #start-game {
+        padding: 5px 10px;
     }
 }

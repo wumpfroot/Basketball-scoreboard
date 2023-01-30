@@ -1,6 +1,9 @@
+
+//initial scores. As the game starts with 0 points for both.
 let homeScore = 0
 let guestScore = 0
 
+//Creating variables of different HTML elements to makee them work with JavaScript
 const homeScoreAmount = document.getElementById("home-score")
 homeScoreAmount.textContent = homeScore
 
@@ -80,29 +83,28 @@ plusThreeGuestBtn.addEventListener("click", threePointsGuest)
 
 resetBtn.addEventListener("click", resetPoints)
 
-function startTimer(duration, display) {
-    let timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        display.textContent = minutes + ":" + seconds;
 
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
+
+//Countdown timer
+
+const startingMinutes = 12
+let time = startingMinutes * 60
+const countdownTimer = document.getElementById("countdown")
+
+function updateCountdown() {
+    const minutes = Math.floor(time / 60)
+    let seconds = time % 60
+
+    seconds = seconds < 10 ? "0" + seconds : seconds
+
+    countdownTimer.textContent = `${minutes}:${seconds}`
+    time--
+
+    if (time < 0) { //stop the setInterval whe time = 0 to avoid negative time
+        let refreshIntervalId = setInterval(updateCountdown, 1000)
+        clearInterval(refreshIntervalId);
+    
 }
-
-function gameClock() {
-    let twelveMinutes = 60 * 12,
-    display = document.querySelector('#time');
-    startTimer(twelveMinutes, display);
-};
-
-const startGame = document.getElementById("start-game")
-
-startGame.addEventListener("click", gameClock)
+}

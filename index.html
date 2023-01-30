@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1 class="header-text">Basketball Scoreboard</h1>
     <div class="container">
         <div>
             <h3>HOME</h3>
-            <h1 id="home-score"></h1>
+            <h1 id="home-score" class="score-number"></h1>
             <div class="score_btnRow">
                 <button id="plus1-home" class="score_btn">+1</button>
                 <button id="plus2-home" class="score_btn">+2</button>
@@ -23,7 +24,7 @@
         </div>
         <div>
             <h3>AWAY</h3>
-            <h1 id="guest-score"></h1>
+            <h1 id="guest-score" class="score-number"></h1>
             <div class="score_btnRow">
                 <button id="plus1-guest" class="score_btn">+1</button>
                 <button id="plus2-guest" class="score_btn">+2</button>
@@ -31,8 +32,10 @@
             </div>
         </div>
     </div>
-    <div><span id="time">12:00</span></div>
-    <button id="start-game">Start Game</button>
+    <div class="game-timer">
+    <span id="countdown">12:00</span>
+    <button id="start-game" onclick="setInterval(updateCountdown, 1000)">Start Game</button> <!--onclick, the updateCountdown function starts with intervals of 1 second -->
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
